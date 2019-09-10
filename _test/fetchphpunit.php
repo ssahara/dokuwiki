@@ -19,6 +19,7 @@ switch ($phpVersion) {
     case '7.3':
         $phpunit = 'phpunit-7.phar';
         break;
+    case '7.4snapshot':
     case '7.4':
         $phpunit = 'phpunit-7.phar';
         // PHP 5 backward compatibility lock to PHPUnit 7 (type hinting)
