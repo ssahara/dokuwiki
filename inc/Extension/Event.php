@@ -127,9 +127,14 @@ class Event
 
         if ($this->advise_before($enablePrevent) && is_callable($action)) {
             if (is_array($action)) {
+                // object method call
                 list($obj, $method) = $action;
                 $this->result = $obj->$method($this->data);
+            } elseif (strpos($action, '::') !== false) {
+                // static method call
+                $this->result = forward_static_call_array($action, [&$this->data]);
             } else {
+                // simple function call
                 $this->result = $action($this->data);
             }
         }
