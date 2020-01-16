@@ -353,7 +353,7 @@ function html_draft(){
 function html_hilight($html, $phrases) {
     $phrases = (array) $phrases;
     $phrases = array_map('preg_quote_cb', $phrases);
-    $phrases = array_map([FulltextSearch::class,'snippet_re_preprocess'], $phrases);
+    $phrases = array_map([FulltextSearch::class,'snippetRePreprocess'], $phrases);
     $phrases = array_filter($phrases);
     $regex = implode('|',$phrases);
 

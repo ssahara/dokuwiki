@@ -6,7 +6,6 @@ use dokuwiki\Search\MetadataIndex;
 use dokuwiki\Search\PageIndex;
 use dokuwiki\Search\QueryParser;
 
-
 /**
  * Class DokuWiki Metadata Search
  *
@@ -119,7 +118,7 @@ class MetadataSearch
             'before' => $before
         ];
         $data['has_titles'] = true; // for plugin backward compatibility check
-        $action = static::class.'::callback_pageLookup';
+        $action = static::class.'::pageLookupCallBack';
         return Event::createAndTrigger('SEARCH_QUERY_PAGELOOKUP', $data, $action);
     }
 
@@ -129,7 +128,7 @@ class MetadataSearch
      * @param array $data  event data
      * @return string[]
      */
-    public static function callback_pageLookup($data)
+    public static function pageLookupCallBack(&$data)
     {
         $Indexer = PageIndex::getInstance();
 

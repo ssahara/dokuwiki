@@ -28,7 +28,7 @@ function ft_snippet($id, $highlight) {
 /** @deprecated 2019-12-28 */
 function ft_snippet_re_preprocess($term) {
     dbg_deprecated('ft_snippet_re_preprocess');
-    return FulltextSearch::snippet_re_preprocess($term);
+    return FulltextSearch::snippetRePreprocess($term);
 }
 
 /** @deprecated 2019-12-28 */
@@ -40,7 +40,7 @@ function ft_queryParser($Indexer, $query) {
 /** @deprecated 2019-12-28 */
 function ft_queryUnparser_simple(array $and, array $not, array $phrases, array $ns, array $notns) {
     dbg_deprecated('ft_queryUnparser_simple');
-    return QueryParser::revert_simple($and, $not, $phrases, $ns, $notns);
+    return QueryParser::revert($and, $not, $phrases, $ns, $notns);
 }
 
 

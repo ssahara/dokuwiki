@@ -308,9 +308,8 @@ class QueryParser
      *
      * @return string
      */
-    public static function revert_simple(
-                        array $and, array $not, array $phrases, array $ns, array $notns
-    ) {
+    public static function revert(array $and, array $not, array $phrases, array $ns, array $notns)
+    {
         $query = implode(' ', $and);
 
         if (!empty($not)) {
