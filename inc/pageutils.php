@@ -128,7 +128,6 @@ function cleanID($raw_id,$ascii=false){
         $sepcharpat = '#\\'.$sepchar.'+#';
 
     $id = trim((string)$raw_id);
-    $id = \dokuwiki\Utf8\PhpString::strtolower($id);
 
     //alternative namespace seperator
     if($conf['useslash']){
@@ -137,8 +136,13 @@ function cleanID($raw_id,$ascii=false){
         $id = strtr($id,';/',':'.$sepchar);
     }
 
-    if($conf['deaccent'] == 2 || $ascii) $id = \dokuwiki\Utf8\Clean::romanize($id);
-    if($conf['deaccent'] || $ascii) $id = \dokuwiki\Utf8\Clean::deaccent($id,-1);
+    if ($conf['deaccent'] == 3) {
+        $id = \dokuwiki\Utf8\Transliterator::transliterate($id);
+    } else {
+       if ($conf['deaccent'] == 2 || $ascii) $id = \dokuwiki\Utf8\Clean::romanize($id);
+       if ($conf['deaccent'] || $ascii) $id = \dokuwiki\Utf8\Clean::deaccent($id, 0);
+       $id = \dokuwiki\Utf8\PhpString::strtolower($id);
+    }
 
     //remove specials
     $id = \dokuwiki\Utf8\Clean::stripspecials($id,$sepchar,'\*');
