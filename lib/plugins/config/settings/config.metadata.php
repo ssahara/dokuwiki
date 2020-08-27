@@ -114,7 +114,7 @@ $meta['tocminheads'] = array('multichoice','_choices' => array(0,1,2,3,4,5,10,15
 $meta['maxtoclevel'] = array('multichoice','_choices' => array(0,1,2,3,4,5));
 $meta['maxseclevel'] = array('multichoice','_choices' => array(0,1,2,3,4,5)); // 0 for no sec edit buttons
 $meta['camelcase']   = array('onoff','_caution' => 'warning');
-$meta['deaccent']    = array('multichoice','_choices' => array(0,1,2),'_caution' => 'warning');
+$meta['deaccent']    = array('multichoice','_choices' => array(0,1,2,3),'_caution' => 'warning');
 $meta['useheading']  = array('multichoice','_choices' => array(0,'navigation','content',1));
 $meta['sneaky_index'] = array('onoff');
 $meta['hidepages']   = array('regex');

@@ -225,6 +225,7 @@ $lang['userewrite_o_2'] = 'DokuWiki internal';
 $lang['deaccent_o_0'] = 'off';
 $lang['deaccent_o_1'] = 'remove accents';
 $lang['deaccent_o_2'] = 'romanize';
+$lang['deaccent_o_3'] = 'transliterate';
 
 /* gdlib options */
 $lang['gdlib_o_0'] = 'GD Lib not available';
